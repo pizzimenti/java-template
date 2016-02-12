@@ -10,7 +10,7 @@ public class App {
 
     get("/", (request, response) -> {
       HashMap model = new HashMap();
-      model.put("template", "templates/landingPage.vtl");
+      model.put("template", "templates/input.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -18,9 +18,10 @@ public class App {
       String textInput = request.queryParams("textInput");
 
       //call business logic functions here
+      String result = textInput;
 
       HashMap model = new HashMap();
-      model.put("template", "templates/resultPage.vtl");
+      model.put("template", "templates/output.vtl");
       model.put("result", String.format(result));
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
